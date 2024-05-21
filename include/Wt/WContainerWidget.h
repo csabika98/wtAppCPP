@@ -70,7 +70,7 @@ class StdLayoutImpl;
  * // is governed based on HTML/CSS rules.
  * auto container1 = std::make_unique<Wt::WContainerWidget>();
  * container1->addWidget(std::make_unique<Wt::WText>("Some text"));
- * container1->addWidget(std::make_unique<Wt::WImage>("images/img.png"));
+ * container1->addWidget(std::make_unique<Wt::WImage>("images/1.png"));
  * Wt::WContainerWidget *child3 = container1->addWidget(std::make_unique<Wt::WContainerWidget>());
  *
  * // Example 2:
@@ -80,7 +80,7 @@ class StdLayoutImpl;
  *
  * auto layout = std::make_unique<Wt::WVBoxLayout>();
  * layout->addWidget(std::make_unique<Wt::WText>("Some text"));
- * layout->addWidget(std::make_unique<Wt::WImage>("images/img.png"));
+ * layout->addWidget(std::make_unique<Wt::WImage>("images/1.png"));
  *
  * container2->setLayout(std::move(layout));      // set the layout to the container.
  * \endcode
@@ -91,7 +91,7 @@ class StdLayoutImpl;
  * // is governed based on HTML/CSS rules.
  * WContainerWidget container1 = new WContainerWidget();
  * container1.addWidget(new WText("Some text"));
- * container1.addWidget(new WImage("images/img.png"));
+ * container1.addWidget(new WImage("images/1.png"));
  * WContainerWidget child3 = new WContainerWidget(container1);
 
  * // Example 2:
@@ -102,7 +102,7 @@ class StdLayoutImpl;
  *
  * WVBoxLayout layout = new WVBoxLayout();
  * layout.addWidget(new WText("Some text"));
- * layout.addWidget(new WImage("images/img.png"));
+ * layout.addWidget(new WImage("images/1.png"));
 
  * container2.setLayout(layout);      // set the layout to the container.
  * \endcode
