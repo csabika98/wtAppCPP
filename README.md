@@ -49,7 +49,7 @@ myapp/
 
 1.  Clone the repository: 
 ```sh    
-git clone [https://github.com/csabika98/HelloWtApp2.git](https://github.com/yourusername/HelloWtApp2.git)
+git clone https://github.com/csabika98/HelloWtApp2.git
 cd HelloWtApp2
 ```
     
