@@ -1,0 +1,105 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Project name and version
+project(HelloWtApp VERSION 1.0 LANGUAGES CXX)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Include directories
+include_directories(
+    "include"
+)
+
+# Add source files
+set(SOURCES
+    src/main.cpp
+    # Add other source files here if needed
+)
+
+# Add an executable
+add_executable(HelloWtApp ${SOURCES})
+
+# Link libraries
+target_link_libraries(HelloWtApp
+    "/lib/wtd.lib"
+    "/lib/wthttpd.lib"
+    "/lib/wtdbo.lib"
+    "/lib/wtdbosqlite3.lib"
+    "/lib/wtdbopostgres.lib"
+    "/lib/wtdbomysql.lib"
+)
+
+# Specify the executable's working directory (optional)
+set_target_properties(HelloWtApp PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+cmake_minimum_required(VERSION 3.10)
+
+# Project name and version
+project(HelloWtApp VERSION 1.0 LANGUAGES CXX)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Include directories
+include_directories(
+        "C:/Program Files/Wt 4.10.4 msvs2022 x64/include"
+)
+
+# Add source files
+set(SOURCES
+        src/main.cpp
+        # Add other source files here if needed
+)
+
+# Add an executable
+add_executable(HelloWtApp ${SOURCES})
+
+# Link libraries
+target_link_libraries(HelloWtApp
+        "/lib/wtd.lib"
+        "/lib/wthttpd.lib"
+        "/lib/wtdbo.lib"
+        "/lib/wtdbosqlite3.lib"
+        "/lib/wtdbopostgres.lib"
+        "/lib/wtdbomysql.lib"
+)
+
+# Specify the executable's working directory (optional)
+set_target_properties(HelloWtApp PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+# Copy DLLs to the output directory
+add_custom_command(TARGET HelloWtApp POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "/bin/wttestd.dll"
+        "/bin/wtd.dll"
+        "/bin/libcrypto-1_1.dll"
+        "/bin/libssl-1_1.dll"
+        "/bin/libcrypto-1_1d.dll"
+        "/bin/libssl-1_1d.dll"
+        "/bin/libhpdf.dll"
+        "/bin/libhpdfd.dll"
+        "/bin/wtdbopostgres.dll"
+        "/bin/wtdbomssqlserver.dll"
+        "/bin/wtdbo.dll"
+        "/bin/wtdbomysql.dll"
+        "/bin/wtdbosqlite3.dll"
+        "/bin/wthttp.dll"
+        "/bin/wt.dll"
+        "/bin/wttest.dll"
+        "/bin/wtdbopostgresd.dll"
+        "/bin/wtdbomssqlserverd.dll"
+        "/bin/wtdbomysqld.dll"
+        "/bin/wtdbod.dll"
+        "/bin/wtdbosqlite3d.dll"
+        "/bin/wthttpd.dll"
+        $<TARGET_FILE_DIR:HelloWtApp>
+)
+
+
