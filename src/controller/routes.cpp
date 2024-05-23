@@ -1,8 +1,6 @@
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WTemplate.h>
-#include <Wt/WAnchor.h>
-#include <Wt/WLink.h>
 #include <Wt/WText.h>
 #include <filesystem>
 #include <memory>
@@ -19,14 +17,7 @@ public:
     explicit HelloApplication(const Wt::WEnvironment& env, std::string  resourcePath)
         : Wt::WApplication(env), resourcePath_(std::move(resourcePath))
     {
-        setTitle("Hello Wt");
-
-        // Navigation links
-        auto linkContainer = root()->addWidget(std::make_unique<Wt::WContainerWidget>());
-        linkContainer->addWidget(std::make_unique<Wt::WAnchor>(Wt::WLink(Wt::LinkType::InternalPath, "/"), "Home"));
-        linkContainer->addWidget(std::make_unique<Wt::WText>(" | "));
-        linkContainer->addWidget(std::make_unique<Wt::WAnchor>(Wt::WLink(Wt::LinkType::InternalPath, "/newroute"), "Go to New Route"));
-
+        setTitle("Homepage");
         // Initialize routes
         initRoutes();
 
@@ -40,10 +31,11 @@ public:
 private:
     std::string resourcePath_;
     std::unordered_map<std::string, std::string> routeMap_;
-
+    // WAY TO ADD NEW ROUTES
     void initRoutes() {
         addRoute("/", "index.html");
         addRoute("/newroute", "new_route.html");
+        addRoute("/secondnewroute","second_new_route.html");
     }
 
     void addRoute(const std::string& path, const std::string& templateFile) {

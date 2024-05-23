@@ -21,17 +21,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa5c1842-33a9-456a-80f8-f8256ea5cb01" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/HelloWtApp2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docroot/new_route.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/routes.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/routes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/templates.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/templates.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docroot/second_new_route.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/api.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/api.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docroot/new_route.html" beforeDir="false" afterPath="$PROJECT_DIR$/docroot/new_route.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/routes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/routes.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +64,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/include/bitset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/include/utility" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/controller/routes.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/view/templates.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -89,35 +86,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;CMake Application.HelloWtApp.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.HelloWtApp2.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Debug.HelloWtApp.executor&quot;: &quot;Debug&quot;,
-    &quot;CMake Debug.Project.executor&quot;: &quot;Debug&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/MSI Katana 15 B13VFK/Desktop/myapp&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "CMake Application.HelloWtApp.executor": "Run",
+    "CMake Application.HelloWtApp2.executor": "Run",
+    "CMake Debug.HelloWtApp.executor": "Debug",
+    "CMake Debug.Project.executor": "Debug",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/MSI Katana 15 B13VFK/Desktop/myapp/docroot",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MSI Katana 15 B13VFK\Desktop\myapp\docroot" />
       <recent name="C:\Users\MSI Katana 15 B13VFK\Desktop\myapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -169,7 +167,7 @@
       <workItem from="1716326339033" duration="1202000" />
       <workItem from="1716327551832" duration="537000" />
       <workItem from="1716328098179" duration="7639000" />
-      <workItem from="1716422775853" duration="99000" />
+      <workItem from="1716422775853" duration="3247000" />
     </task>
     <servers />
   </component>

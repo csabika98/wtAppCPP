@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "controller/routes.h"
+#include "controller/api.h" // Include the dynamic API header
 
 int main(int argc, char** argv) {
     try {
@@ -38,12 +39,13 @@ int main(int argc, char** argv) {
             return createApplication(env, docroot);
         });
 
+        setupApiEndpoints(server);
+
         if (server.start()) {
             int sig = Wt::WServer::waitForShutdown();
             server.stop();
             return sig;
-        } else {
-            return 1;
+
         }
     }
     catch (Wt::WServer::Exception& e) {
@@ -55,4 +57,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 }
+
+
+
+
 
