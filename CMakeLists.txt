@@ -20,6 +20,21 @@ file(GLOB_RECURSE SOURCES
         ${CMAKE_SOURCE_DIR}/docroot/resources/*.html
         ${CMAKE_SOURCE_DIR}/docroot/resources/*.js
         ${CMAKE_SOURCE_DIR}/docroot/resources/*.c
+        ${CMAKE_SOURCE_DIR}/docroot/*.html
+        ${CMAKE_SOURCE_DIR}/docroot/*.js
+        ${CMAKE_SOURCE_DIR}/docroot/*.css
+        ${CMAKE_SOURCE_DIR}/src/controller/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/controller/*.c
+        ${CMAKE_SOURCE_DIR}/src/controller/*.h
+        ${CMAKE_SOURCE_DIR}/src/model/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/model/*.c
+        ${CMAKE_SOURCE_DIR}/src/model/*.h
+        ${CMAKE_SOURCE_DIR}/src/view/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/view/*.c
+        ${CMAKE_SOURCE_DIR}/src/view/*.h
+
+
+
 )
 
 # Add an executable
