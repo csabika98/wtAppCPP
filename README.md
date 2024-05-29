@@ -14,6 +14,9 @@
 
 ## Pre-requirements:
 
+Wt is required to run the web app.
+
+
 One command:
 ```sh
 sudo apt update && sudo apt install gcc g++ cmake libboost-all-dev libssl-dev libhpdf-dev libgraphicsmagick1-dev libpango1.0-dev libpq-dev libmysqlclient-dev libmariadb-dev unixodbc-dev libunwind-dev zlib1g-dev firebird-dev libfcgi-dev libqt5core5a libqt5gui5 libqt5widgets5 libqt5sql5
@@ -133,7 +136,10 @@ export CFLAGS="$CFLAGS -std=c++14"
 ```sh
 source /etc/profile.d/gcc.sh
 ```
-
+0. Clone Wt
+```sh
+git clone https://github.com/emweb/wt.git
+```
 1. Create a build directory
 
 ```sh
