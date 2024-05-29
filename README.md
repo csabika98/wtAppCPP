@@ -9,6 +9,199 @@
 ## 3
 ![3.png](screenshots/3.png)
 
+
+## Installation
+
+## Pre-requirements:
+
+One command:
+```sh
+sudo apt update && sudo apt install gcc g++ cmake libboost-all-dev libssl-dev libhpdf-dev libgraphicsmagick1-dev libpango1.0-dev libpq-dev libmysqlclient-dev libmariadb-dev unixodbc-dev libunwind-dev zlib1g-dev firebird-dev libfcgi-dev libqt5core5a libqt5gui5 libqt5widgets5 libqt5sql5
+```
+
+Configuring g++ and gcc with alternatives, and setting C++14:
+```sh
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-<version> 60 \
+&& sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-<version> 60 \
+&& echo 'export CXXFLAGS="$CXXFLAGS -std=c++14"' | sudo tee /etc/profile.d/gcc.sh \
+&& echo 'export CFLAGS="$CFLAGS -std=c++14"' | sudo tee -a /etc/profile.d/gcc.sh \
+&& source /etc/profile.d/gcc.sh
+```
+
+
+Compiler:
+```sh
+sudo apt update
+sudo apt install gcc g++
+```
+Cmake:
+```sh
+sudo apt update
+sudo apt install cmake
+```
+C++ Boost Library:
+```sh
+sudo apt update
+sudo apt install libboost-all-dev
+```
+OpenSSL:
+```sh
+sudo apt update
+sudo apt install libssl-dev
+```
+Haru Free PDF Library:
+```sh
+sudo apt update
+sudo apt install libhpdf-dev
+```
+GraphicsMagick:
+```sh
+sudo apt update
+sudo apt install libgraphicsmagick1-dev
+```
+
+Pango:
+```sh
+sudo apt update
+sudo apt install libpango1.0-dev
+```
+
+PostgreSQL:
+```sh
+sudo apt update
+sudo apt install libpq-dev
+```
+
+MySQL:
+```sh
+sudo apt update
+sudo apt install libmysqlclient-dev
+```
+
+MariaDB:
+```sh
+sudo apt update
+sudo apt install libmariadb-dev
+```
+
+unixODBC:
+
+```sh
+sudo apt update
+sudo apt install unixodbc-dev
+```
+
+libunwind:
+
+```sh
+sudo apt update
+sudo apt install libunwind-dev
+```
+
+zlib for Compression:
+```sh
+sudo apt update
+sudo apt install zlib1g-dev
+```
+
+firebird:
+```sh
+sudo apt update
+sudo apt install firebird-dev
+```
+
+Libraries for wtfcgi and Qt for libwtwithqt Interoperability Layer:
+```sh
+sudo apt update
+sudo apt install libfcgi-dev
+sudo apt install libqt5core5a libqt5gui5 libqt5widgets5 libqt5sql5
+```
+
+Configure g++ and gcc
+```sh
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-<version> 60
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-<version> 60
+```
+Set c++14:
+```sh
+sudo nano /etc/profile.d/gcc.sh
+```
+```sh
+export CXXFLAGS="$CXXFLAGS -std=c++14"
+export CFLAGS="$CFLAGS -std=c++14"
+```
+```sh
+source /etc/profile.d/gcc.sh
+```
+
+1. Create a build directory
+
+```sh
+mkdir build
+```
+```sh
+cd build
+```
+2. Configure the library:
+
+```sh
+cmake ../
+```
+
+3. Build the library
+
+```sh
+make -j4
+```
+4. Install the library
+
+```sh
+make install
+```
+
+CmakeList example:
+
+
+```sh
+cmake_minimum_required(VERSION 3.28)
+
+project(dbo_test)
+set(CMAKE_CXX_STANDARD 17)
+
+project(dbo_test VERSION 1.0 LANGUAGES CXX)
+
+file(GLOB_RECURSE SOURCES
+        ${CMAKE_SOURCE_DIR}/src/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/*.c
+        ${CMAKE_SOURCE_DIR}/docroot/resources/*.css
+        ${CMAKE_SOURCE_DIR}/src/*.h
+        ${CMAKE_SOURCE_DIR}/docroot/resources/*.html
+        ${CMAKE_SOURCE_DIR}/docroot/resources/*.js
+        ${CMAKE_SOURCE_DIR}/docroot/resources/*.c
+        ${CMAKE_SOURCE_DIR}/docroot/*.html
+        ${CMAKE_SOURCE_DIR}/docroot/*.js
+        ${CMAKE_SOURCE_DIR}/docroot/*.css
+        ${CMAKE_SOURCE_DIR}/src/controller/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/controller/*.c
+        ${CMAKE_SOURCE_DIR}/src/controller/*.h
+        ${CMAKE_SOURCE_DIR}/src/model/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/model/*.c
+        ${CMAKE_SOURCE_DIR}/src/model/*.h
+        ${CMAKE_SOURCE_DIR}/src/view/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/view/*.c
+        ${CMAKE_SOURCE_DIR}/src/view/*.h
+
+)
+
+INCLUDE_DIRECTORIES(/usr/local/include)
+
+add_executable(dbo_test ${SOURCES})
+
+TARGET_LINK_LIBRARIES(dbo_test wt wthttp wtdbo wtdbosqlite3)
+
+```
+
+
 ## Overview
 
 HelloWtApp2 is a web application built in C++. 
