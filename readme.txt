@@ -16,6 +16,116 @@
 
 Wt is required to run the web app.
 
+## FOR MacOS
+# Install necessary packages
+```sh
+brew install gcc cmake boost openssl harfbuzz graphicsmagick pango postgresql@14 mysql unixodbc zlib fcgi qt@5 qt autoconf automake bison pkg-config gobject-introspection meson ninja glew graphviz libharu doxygen
+```
+
+# Install Firebird from source
+```sh
+curl -LO https://github.com/FirebirdSQL/firebird/releases/download/v5.0.0/Firebird-5.0.0.1306-0-source.tar.xz
+tar -xzvf Firebird-5.0.0.1306-0-source.tar.xz
+cd Firebird-5.0.0.1306-0-source
+./configure
+make
+sudo make install
+cd ..
+```
+
+# Install and secure MySQL
+```sh
+brew install mysql
+brew services start mysql
+mysql_secure_installation
+```
+# Unlink MySQL and install MariaDB (optional)
+```sh
+brew unlink mysql
+brew install mariadb
+brew link mariadb
+brew services start mariadb
+mysql_secure_installation
+```
+# Clone and build Wt library
+```sh
+echo "CMAKE_CXX_FLAGS:STRING=-std=c++14" >> CMakeCache.txt
+git clone https://github.com/emweb/wt.git
+mkdir wt/build
+cd wt/build
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D CMAKE_CXX_STANDARD=14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 \
+           -D CMAKE_CXX_COMPILER=g++-14 \
+           -D CMAKE_CXX_STANDARD=14 \
+           -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
+           -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 \
+           -D POSTGRES_PREFIX=/Library/PostgreSQL/16 \
+           -D BOOST_ROOT=/Users/sallaicsaba/Downloads/boost_1_84_0 \
+		   -D OPENSSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0 \
+           ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 \
+           -D CMAKE_CXX_COMPILER=g++-14 \
+           -D CMAKE_CXX_STANDARD=14 \
+           -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
+           -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 \
+           -D POSTGRES_PREFIX=/Library/PostgreSQL/16 \
+           -D BOOST_ROOT=/Users/sallaicsaba/Downloads/boost_1_84_0 \
+           -D OPENSSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0 \
+           -D CMAKE_EXE_LINKER_FLAGS="-L/usr/local/opt/openssl/lib" \
+           -D CMAKE_CXX_FLAGS="-I/usr/local/opt/openssl/include"
+           ../
+
+
+WORKING:
+
+sudo cmake -D CMAKE_CXX_STANDARD=14 \
+           -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
+           -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 \
+           -D POSTGRES_PREFIX=/Library/PostgreSQL/16 \
+           -D BOOST_ROOT=/Users/sallaicsaba/Downloads/boost_1_84_0 \
+           -D OPENSSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0 \
+           -D CMAKE_EXE_LINKER_FLAGS="-L/usr/local/opt/openssl/lib" \
+           -D CMAKE_CXX_FLAGS="-I/usr/local/opt/openssl/include"
+           ../
+
+
+make -j4
+sudo make install
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+export PATH="/usr/local/opt/qt@5/bin:$PATH"
+export CC=/usr/local/bin/gcc-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)
+export CXX=/usr/local/bin/g++-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)
+export CC=/usr/local/bin/gcc-14
+export CXX=/usr/local/bin/g++-14
+export CXXFLAGS="$CXXFLAGS -std=c++14"
+export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+export CPPFLAGS="-I/usr/local/opt/icu4c/include"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export POSTGRES_PREFIX=/usr/local/Cellar/postgresql@14/14.12
+export DOXYGEN_EXECUTABLE=/usr/local/Cellar/doxygen/1.11.0/bin/doxygen
+export SSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0
+export HARU_PREFIX=/usr/local/Cellar/libharu/2.4.4
+export WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick
+export GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43
+export PATH="/usr/local/opt/bison/bin:$PATH"
+alias cmake="/usr/local/Cellar/cmake/3.29.3/bin/cmake"
+alias ccmake="/usr/local/Cellar/cmake/3.29.3/bin/ccmake"
+alias cpack="/usr/local/Cellar/cmake/3.29.3/bin/cpack"
+alias ctest="/usr/local/Cellar/cmake/3.29.3/bin/ctest"
+export LDFLAGS="-L/usr/local/opt/boost@1.76/lib"
+export CPPFLAGS="-I/usr/local/opt/boost@1.76/include"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+```
+
+
+
 ## FOR LINUX
 
 One command:
@@ -211,7 +321,7 @@ TARGET_LINK_LIBRARIES(dbo_test wt wthttp wtdbo wtdbosqlite3)
 
 ## Overview
 
-HelloWtApp2 is a web application built in C++. 
+HelloWtApp2 is a web application built in C++.
 
 This application demonstrates how to set up a simple server that serves an HTML template with embedded CSS.
 
@@ -247,23 +357,23 @@ myapp/
 
 ## Building the Application
 
-1.  Clone the repository: 
-```sh    
+1.  Clone the repository:
+```sh
 git clone https://github.com/csabika98/HelloWtApp2.git
 cd HelloWtApp2
 ```
-    
-2.  Create a build directory and navigate into it: 
-```sh  
-mkdir build 
+
+2.  Create a build directory and navigate into it:
+```sh
+mkdir build
 cd build
-```  
-3.  Run CMake to configure the project: 
+```
+3.  Run CMake to configure the project:
 ```sh
 cmake ..
-``` 
+```
 
-4.  Build the project: 
+4.  Build the project:
 ```sh
 cmake --build .
 ```
@@ -272,7 +382,7 @@ cmake --build .
 
 After building the application, you can run the executable with the following command:
 ```sh
-./bin/HelloWtApp2 
+./bin/HelloWtApp2
 ```
 
 This command starts the server on [http://localhost:8080](http://localhost:8080) and serves the application.
