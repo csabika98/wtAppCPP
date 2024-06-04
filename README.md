@@ -54,6 +54,8 @@ git clone https://github.com/emweb/wt.git
 mkdir wt/build
 cd wt/build
 sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D CMAKE_CXX_STANDARD=14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
 make -j4
 sudo make install
 ```
