@@ -95,6 +95,33 @@ sudo cmake -D CMAKE_CXX_STANDARD=14 \
 
 make -j4
 sudo make install
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+export PATH="/usr/local/opt/qt@5/bin:$PATH"
+export CC=/usr/local/bin/gcc-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)
+export CXX=/usr/local/bin/g++-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)
+export CC=/usr/local/bin/gcc-14
+export CXX=/usr/local/bin/g++-14
+export CXXFLAGS="$CXXFLAGS -std=c++14"
+export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+export CPPFLAGS="-I/usr/local/opt/icu4c/include"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export POSTGRES_PREFIX=/usr/local/Cellar/postgresql@14/14.12
+export DOXYGEN_EXECUTABLE=/usr/local/Cellar/doxygen/1.11.0/bin/doxygen
+export SSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0
+export HARU_PREFIX=/usr/local/Cellar/libharu/2.4.4
+export WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick
+export GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43
+export PATH="/usr/local/opt/bison/bin:$PATH"
+alias cmake="/usr/local/Cellar/cmake/3.29.3/bin/cmake"
+alias ccmake="/usr/local/Cellar/cmake/3.29.3/bin/ccmake"
+alias cpack="/usr/local/Cellar/cmake/3.29.3/bin/cpack"
+alias ctest="/usr/local/Cellar/cmake/3.29.3/bin/ctest"
+export LDFLAGS="-L/usr/local/opt/boost@1.76/lib"
+export CPPFLAGS="-I/usr/local/opt/boost@1.76/include"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 ```
 
 
