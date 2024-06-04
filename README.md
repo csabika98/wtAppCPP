@@ -19,7 +19,7 @@ Wt is required to run the web app.
 ## FOR MacOS
 # Install necessary packages
 ```sh
-brew install gcc cmake boost openssl harfbuzz graphicsmagick pango postgresql@14 mysql unixodbc zlib fcgi qt@5
+brew install gcc cmake boost openssl harfbuzz graphicsmagick pango postgresql@14 mysql unixodbc zlib fcgi qt@5 qt autoconf automake bison pkg-config gobject-introspection meson ninja glew graphviz libharu doxygen
 ```
 
 # Install Firebird from source
@@ -33,14 +33,6 @@ sudo make install
 cd ..
 ```
 
-# Configure gcc and g++ with C++14 standard
-```sh
-echo 'export CC=/usr/local/bin/gcc-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)' >> ~/.zshrc
-echo 'export CXX=/usr/local/bin/g++-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)' >> ~/.zshrc
-echo 'export CXXFLAGS="$CXXFLAGS -std=c++14"' >> ~/.zshrc
-echo 'export CFLAGS="$CFLAGS -std=c++14"' >> ~/.zshrc
-source ~/.zshrc
-```
 # Install and secure MySQL
 ```sh
 brew install mysql
@@ -60,7 +52,7 @@ mysql_secure_installation
 git clone https://github.com/emweb/wt.git
 mkdir wt/build
 cd wt/build
-cmake ..
+sudo cmake -DWT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick  -DGM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43  -DPOSTGRES_PREFIX=/Library/PostgreSQL/16 ../
 make -j4
 sudo make install
 ```
