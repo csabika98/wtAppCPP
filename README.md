@@ -49,10 +49,11 @@ mysql_secure_installation
 ```
 # Clone and build Wt library
 ```sh
+echo "CMAKE_CXX_FLAGS:STRING=-std=c++14" >> CMakeCache.txt
 git clone https://github.com/emweb/wt.git
 mkdir wt/build
 cd wt/build
-sudo cmake -DWT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick  -DGM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43  -DPOSTGRES_PREFIX=/Library/PostgreSQL/16 ../
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
 make -j4
 sudo make install
 ```
