@@ -24,9 +24,9 @@ brew install gcc cmake boost openssl harfbuzz graphicsmagick pango postgresql@14
 
 # Install Firebird from source
 ```sh
-curl -LO https://github.com/FirebirdSQL/firebird/releases/download/R3_0_7/Firebird-3.0.7.33374-0.tar.gz
-tar -xzvf Firebird-3.0.7.33374-0.tar.gz
-cd Firebird-3.0.7.33374-0
+curl -LO https://github.com/FirebirdSQL/firebird/releases/download/v5.0.0/Firebird-5.0.0.1306-0-source.tar.xz
+tar -xzvf Firebird-5.0.0.1306-0-source.tar.xz
+cd Firebird-5.0.0.1306-0-source
 ./configure
 make
 sudo make install
