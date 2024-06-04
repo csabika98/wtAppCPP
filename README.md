@@ -16,6 +16,58 @@
 
 Wt is required to run the web app.
 
+## FOR MacOS
+# Install necessary packages
+```sh
+brew install gcc cmake boost openssl harfbuzz graphicsmagick pango postgresql@14 mysql unixodbc zlib fcgi qt@5
+```
+
+# Install Firebird from source
+```sh
+curl -LO https://github.com/FirebirdSQL/firebird/releases/download/R3_0_7/Firebird-3.0.7.33374-0.tar.gz
+tar -xzvf Firebird-3.0.7.33374-0.tar.gz
+cd Firebird-3.0.7.33374-0
+./configure
+make
+sudo make install
+cd ..
+```
+
+# Configure gcc and g++ with C++14 standard
+```sh
+echo 'export CC=/usr/local/bin/gcc-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)' >> ~/.zshrc
+echo 'export CXX=/usr/local/bin/g++-$(brew list --versions gcc | awk "{print \$2}" | cut -d. -f1)' >> ~/.zshrc
+echo 'export CXXFLAGS="$CXXFLAGS -std=c++14"' >> ~/.zshrc
+echo 'export CFLAGS="$CFLAGS -std=c++14"' >> ~/.zshrc
+source ~/.zshrc
+```
+# Install and secure MySQL
+```sh
+brew install mysql
+brew services start mysql
+mysql_secure_installation
+```
+# Unlink MySQL and install MariaDB (optional)
+```sh
+brew unlink mysql
+brew install mariadb
+brew link mariadb
+brew services start mariadb
+mysql_secure_installation
+```
+# Clone and build Wt library
+```sh
+git clone https://github.com/emweb/wt.git
+mkdir wt/build
+cd wt/build
+cmake ..
+make -j4
+sudo make install
+```
+
+
+
+## FOR LINUX
 
 One command:
 ```sh
