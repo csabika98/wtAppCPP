@@ -56,6 +56,28 @@ cd wt/build
 sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
 OR
 sudo cmake -D CMAKE_C_COMPILER=gcc-14 -D CMAKE_CXX_COMPILER=g++-14 -D CMAKE_CXX_STANDARD=14 -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 -D POSTGRES_PREFIX=/Library/PostgreSQL/16 ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 \
+           -D CMAKE_CXX_COMPILER=g++-14 \
+           -D CMAKE_CXX_STANDARD=14 \
+           -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
+           -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 \
+           -D POSTGRES_PREFIX=/Library/PostgreSQL/16 \
+           -D BOOST_ROOT=/Users/sallaicsaba/Downloads/boost_1_84_0 \
+		   -D OPENSSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0 \
+           ../
+OR
+sudo cmake -D CMAKE_C_COMPILER=gcc-14 \
+           -D CMAKE_CXX_COMPILER=g++-14 \
+           -D CMAKE_CXX_STANDARD=14 \
+           -D WT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
+           -D GM_PREFIX=/usr/local/Cellar/graphicsmagick/1.3.43 \
+           -D POSTGRES_PREFIX=/Library/PostgreSQL/16 \
+           -D BOOST_ROOT=/Users/sallaicsaba/Downloads/boost_1_84_0 \
+           -D OPENSSL_PREFIX=/usr/local/Cellar/openssl@3/3.3.0 \
+           -D CMAKE_EXE_LINKER_FLAGS="-L/usr/local/opt/openssl/lib" \
+           -D CMAKE_CXX_FLAGS="-I/usr/local/opt/openssl/include"
+           ../
 make -j4
 sudo make install
 ```
