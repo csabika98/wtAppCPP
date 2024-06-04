@@ -1,5 +1,5 @@
 #include <Wt/Dbo/Dbo.h>
-#include <Wt/Dbo/backend/Sqlite3.h>
+#include <Wt/Dbo/backend/MySQL.h>
 #include <iostream>
 #include <chrono>
 
@@ -22,13 +22,9 @@ public:
 
 int main() {
     // Set up the connection to the database
-    auto sqlite3 = std::make_unique<dbo::backend::Sqlite3>("database.db");
-    sqlite3->setProperty("show-queries", "true");
-    sqlite3->setDateTimeStorage(dbo::SqlDateTimeType::Date, dbo::backend::DateTimeStorage::ISO8601AsText);
-    sqlite3->setDateTimeStorage(dbo::SqlDateTimeType::DateTime, dbo::backend::DateTimeStorage::ISO8601AsText);
-
+    auto mysql = std::make_unique<dbo::backend::MySQL>("wtapp", "root", "Derank259", "127.0.0.1");
     dbo::Session session;
-    session.setConnection(std::move(sqlite3));
+    session.setConnection(std::move(mysql));
     session.mapClass<A>("a");
 
     // Create tables if they do not exist
@@ -64,5 +60,4 @@ int main() {
 
     return 0;
 }
-
 
