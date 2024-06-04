@@ -27,18 +27,18 @@ file(GLOB_RECURSE SOURCES
 
 include_directories(/usr/local/include)
 
-# Find the libraries
-find_library(WT_LIB wt PATHS /Users/sallaicsaba/Downloads/wt/build/src)
-find_library(WTHTTP_LIB wthttp PATHS /Users/sallaicsaba/Downloads/wt/build/src/http)
-find_library(WTDBOSQLITE3_LIB wtdbosqlite3 PATHS /Users/sallaicsaba/Downloads/wt/build/src/Dbo/backend)
-find_library(WTDBO_LIB wtdbo PATHS /Users/sallaicsaba/Downloads/wt/build/src/Dbo)
-# Check if the libraries were found
-if(NOT WT_LIB)
-    message(FATAL_ERROR "libwt not found")
-endif()
-if(NOT WTHTTP_LIB)
-    message(FATAL_ERROR "libwthttp not found")
-endif()
+## Find the libraries
+#find_library(WT_LIB wt PATHS /Users/sallaicsaba/Downloads/wt/build/src)
+#find_library(WTHTTP_LIB wthttp PATHS /Users/sallaicsaba/Downloads/wt/build/src/http)
+#find_library(WTDBOSQLITE3_LIB wtdbosqlite3 PATHS /Users/sallaicsaba/Downloads/wt/build/src/Dbo/backend)
+#find_library(WTDBO_LIB wtdbo PATHS /Users/sallaicsaba/Downloads/wt/build/src/Dbo)
+## Check if the libraries were found
+#if(NOT WT_LIB)
+#    message(FATAL_ERROR "libwt not found")
+#endif()
+#if(NOT WTHTTP_LIB)
+#    message(FATAL_ERROR "libwthttp not found")
+#endif()
 
 add_executable(dbo_test ${SOURCES}
         src/CUSTOM_SQL_VALUE_TRAITS.cpp)

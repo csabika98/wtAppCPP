@@ -21,11 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa5c1842-33a9-456a-80f8-f8256ea5cb01" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CUSTOM_SQL_VALUE_TRAITS.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +168,7 @@
       <workItem from="1717499785086" duration="210000" />
       <workItem from="1717500009148" duration="381000" />
       <workItem from="1717500403344" duration="3481000" />
-      <workItem from="1717505082877" duration="458000" />
+      <workItem from="1717505082877" duration="638000" />
     </task>
     <servers />
   </component>
